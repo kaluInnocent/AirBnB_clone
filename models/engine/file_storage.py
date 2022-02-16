@@ -38,20 +38,20 @@ class FileStorage:
         from models.place import Place
         from models.review import Review
 
-        all_classes = {"BaseModel": BaseModel,
+        classes = {"BaseModel": BaseModel,
                        "User": User,
                        "State": State,
                        "City": City,
                        "Amenity": Amenity,
                        "Place":Place,
                        "Review": Review}
-        return all_classes
+        return classes
 
     def reload(self):
         """Deserialises JSON file into __objects."""
         if not os.path.isfile(FileStorage.__file_path):
             return
-        with open(FileStorage.__file_path,"r", encoding="ütf-8")as f:
+        with open(FileStorage.__file_path,"r", encoding="utf-8") as f:
             obj_dict = json.load(f)
             obj_dict = {k: self.all_classes()[v["__class__"]](**v)
                         for k, v in obj_dict.items()}
