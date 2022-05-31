@@ -5,7 +5,8 @@
     border: 1px solid #ddd;
     border-radius: 4px;
     display: flex;
-    justify-content: flex-end;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 
 button {
@@ -22,14 +23,14 @@ button {
     background-color: rgba(255, 90, 95, .9);
 }
 
-.locations, 
-.amenities {
+.filters .locations, 
+.filters .amenities {
     height: 100%;
     width: 25%;
 }
 
 .locations{
-    border-right: #ddd  1px;
+    border-right: #ddd  1px solid;
 }
 
 .locations h3,
@@ -45,4 +46,27 @@ button {
 
 .amenities {
     text-align: center;
+}
+
+.popover h2{
+    font-size: 16px;
+}
+
+ul {
+    padding: 1px 5px;
+    list-style: none;
+    background: #fafafa;
+    width: inherit;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.filters .popover {
+    display: none;
+    position: absolute;
+}
+
+.filters .locations:hover .popover,
+.filters .amenities:hover .popover {
+    display: block;
 }
